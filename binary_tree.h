@@ -10,5 +10,6 @@ void inorder_traversal(TreeNode* root);
 void preorder_traversal(TreeNode* root);
 void postorder_traversal(TreeNode* root);
 int height(TreeNode* root);
+void free_tree(TreeNode* root);
 
 #endif
