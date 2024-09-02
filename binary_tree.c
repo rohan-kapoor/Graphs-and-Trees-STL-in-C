@@ -1,23 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "binary_tree.h" // Declarations of functions
+#include "tree_operations.c"
 
 #define INITIAL_QUEUE_SIZE 10
 
+// Definition for a binary tree node
 struct TreeNode{
     int data;
     TreeNode* left;
     TreeNode* right;
 };
-
-// Function to create a new node
-TreeNode* create_node(int data){
-    TreeNode* newNode = (TreeNode*)malloc(sizeof(TreeNode));
-    newNode -> data = data;
-    newNode -> left = NULL;
-    newNode -> right = NULL;
-    return newNode;
-}
 
 // Dynamically resizing queue
 void resize_queue(TreeNode*** queue, int* capacity, int current_size){
@@ -74,67 +67,30 @@ TreeNode* insert(TreeNode* root, int data) {
     return root;
 }
 
-// Function to print the level order traversal of binary tree
-void print_level_order(TreeNode* root){
-    if(root == NULL) return;
+int main() {
+    TreeNode* root = NULL;
+    root = insert(root, 1);
+    root = insert(root, 2);
+    root = insert(root, 3);
+    root = insert(root, 4);
+    root = insert(root, 5);
+    root = insert(root, 6);
+    root = insert(root, 7);
 
-    int capacity = INITIAL_QUEUE_SIZE;
-    int current_size = 0;
-    TreeNode** queue = (TreeNode**)malloc(capacity * sizeof(TreeNode*));
+    pre_order(root);
+    printf("\n");
 
-    int front = 0, rear = 0;
+    in_order(root);
+    printf("\n");
 
-    queue[rear++] = root;
-    current_size++;
+    post_order(root);
+    printf("\n");
 
-    while(front < rear){
-        resize_queue(&queue, &capacity, current_size);
+    int height = get_height(root);
+    printf("%d\n", height);
 
-        TreeNode* temp = queue[front++];
-        current_size--;
+    level_order(root);
+    printf("\n");
 
-        printf("%d ", temp -> data);
-
-        if(temp -> left != NULL){
-            queue[rear++] = temp -> right;
-            current_size++;
-        }
-        
-        if(temp -> right != NULL){
-            queue[rear++] = temp -> right;
-            current_size++;
-        }
-    }
-    free(queue);
-}
-
-// Function to perform a pre-order traversal of the tree
-void pre_order(TreeNode* root){
-    if(root == NULL) return;
-    printf("%d ", root -> data);
-    pre_order(root -> left);
-    pre_order(root -> right);
-}
-
-// Function to perform an in-order traversal of the tree
-void in_order(TreeNode* root){
-    if(root == NULL) return;
-    in_order(root -> left);
-    printf("%d ", root -> data);
-    in_order(root -> right);
-}
-
-// Function to perform a post-order traversal of the tree
-void post_order(TreeNode* root) {
-    if (root == NULL) return;
-    post_order(root->left);
-    post_order(root->right);
-    printf("%d ", root->data);
-}
-
-void free_tree(TreeNode* root) {
-    if (root == NULL) return;
-    free_tree(root->left);
-    free_tree(root->right);
-    free(root);
+    return 0;
 }
