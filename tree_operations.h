@@ -1,7 +1,8 @@
-#ifndef TREE_OPERATIONS
-#define TREE_OPERATIONS
-
-typedef struct TreeNode TreeNode;
+typedef struct TreeNode{
+    int data;
+    struct TreeNode* left;
+    struct TreeNode* right;
+}TreeNode;
 
 // Function prototypes for common functions
 TreeNode* create_node(int data);
@@ -11,5 +12,4 @@ void post_order(TreeNode* root);
 void free_tree(TreeNode* root);
 int get_height(TreeNode* root);
 void level_order(TreeNode* root);
-
-#endif
+void resize_queue(TreeNode*** queue, int* capacity, int current_size);

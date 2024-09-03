@@ -4,13 +4,6 @@
 
 #define INITIAL_QUEUE_SIZE 10
 
-// Definition for a tree node
-struct TreeNode{
-    int data;
-    TreeNode* left;
-    TreeNode* right;
-};
-
 // Function to create a new node
 TreeNode* create_node(int data){
     TreeNode* newNode = (TreeNode*)malloc(sizeof(TreeNode));
