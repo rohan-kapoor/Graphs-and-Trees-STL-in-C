@@ -1,31 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "binary_tree.h" // Declarations of functions
+#include "binary_tree.h"
 #include "tree_operations.h"
 
 #define INITIAL_QUEUE_SIZE 10
-
-// Definition for a binary tree node
-// struct TreeNode{
-//     int data;
-//     TreeNode* left;
-//     TreeNode* right;
-// };
-
-// typedef struct TreeNode TreeNode;
-
-
-// Dynamically resizing queue
-// void resize_queue(TreeNode*** queue, int* capacity, int current_size){
-//     if(current_size >= *capacity){
-//         *capacity *= 2;
-//         *queue = realloc(*queue, (*capacity) * sizeof(TreeNode*));
-//     }
-//     else if(current_size <= (*capacity) / 4 && *capacity > 1){
-//         *capacity /= 2;
-//         *queue = realloc(*queue, (*capacity) * sizeof(TreeNode*));
-//     }
-// }
 
 // Function to insert a node in binary tree in level order
 TreeNode* insert(TreeNode* root, int data) {
@@ -69,31 +47,3 @@ TreeNode* insert(TreeNode* root, int data) {
     free(queue);
     return root;
 }
-
-// int main() {
-//     TreeNode* root = NULL;
-//     root = insert(root, 1);
-//     root = insert(root, 2);
-//     root = insert(root, 3);
-//     root = insert(root, 4);
-//     root = insert(root, 5);
-//     root = insert(root, 6);
-//     root = insert(root, 7);
-
-//     pre_order(root);
-//     printf("\n");
-
-//     in_order(root);
-//     printf("\n");
-
-//     post_order(root);
-//     printf("\n");
-
-//     int height = get_height(root);
-//     printf("%d\n", height);
-
-//     level_order(root);
-//     printf("\n");
-
-//     return 0;
-// }
