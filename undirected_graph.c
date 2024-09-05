@@ -24,3 +24,37 @@ bool is_connected_undirected(Graph* graph, char* srcName, char* destName){
     }
     return false;
 }
+
+bool dfs_cycle_undirected(Graph* graph, int vertex, bool* visited, int parent) {
+    visited[vertex] = true;
+
+    for (int i = 0; i < graph->numVertices; i++) {
+        if (graph->adjMatrix[vertex][i]) {
+            if (!visited[i]) {
+                if (dfs_cycle_undirected(graph, i, visited, vertex)) {
+                    return true;
+                }
+            } else if (i != parent) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+bool is_cyclic_undirected(Graph* graph) {
+    bool* visited = (bool*)calloc(graph->numVertices, sizeof(bool));
+
+    for (int i = 0; i < graph->numVertices; i++) {
+        if (!visited[i]) {
+            if (dfs_cycle_undirected(graph, i, visited, -1)) {
+                free(visited);
+                return true;
+            }
+        }
+    }
+
+    free(visited);
+    return false;
+}

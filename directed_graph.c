@@ -22,3 +22,40 @@ bool is_connected_directed(Graph* graph, char* srcName, char* destName){
     }
     return false;
 }
+
+bool dfs_cycle_directed(Graph* graph, int vertex, bool* visited, bool* recursionStack){
+    if (!visited[vertex]){
+        visited[vertex] = true;
+        recursionStack[vertex] = true;
+
+        for(int i = 0; i < graph->numVertices; i++){
+            if (graph->adjMatrix[vertex][i]){
+                if (!visited[i] && dfs_cycle_directed(graph, i, visited, recursionStack)){
+                    return true;
+                }
+                else if(recursionStack[i]){
+                    return true;
+                }
+            }
+        }
+    }
+    recursionStack[vertex] = false;
+    return false;
+}
+
+bool is_cyclic_directed(Graph* graph){
+    bool* visited = (bool*)calloc(graph->numVertices, sizeof(bool));
+    bool* recursionStack = (bool*)calloc(graph->numVertices, sizeof(bool));
+
+    for (int i = 0; i < graph->numVertices; i++) {
+        if (dfs_cycle_directed(graph, i, visited, recursionStack)) {
+            free(visited);
+            free(recursionStack);
+            return true;
+        }
+    }
+
+    free(visited);
+    free(recursionStack);
+    return false;
+}
