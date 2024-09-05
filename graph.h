@@ -27,3 +27,14 @@ bool is_connected_directed(Graph* graph, char* src, char* dest);
 void add_undirected_edge(Graph* graph, char* src, char* dest);
 void remove_undirected_edge(Graph* graph, char* src, char* dest);
 bool is_connected_undirected(Graph* graph, char* src, char* dest);
+
+// Cycle detection
+
+// -> Directed Graph
+bool is_cyclic_directed(Graph* graph);
+
+// -> Undirected graph
+bool is_cyclic_undirected(Graph* graph);
+
+// Shortest Path - Using BFS
+int* shortest_path(Graph* graph, char* srcName, char* destName, int* pathLength);
