@@ -1,6 +1,3 @@
-#include <limits.h>
-#include <stdlib.h>
-#include <stdbool.h>
 #include "graph.h"
 #include "queue.h"
 
@@ -49,6 +46,7 @@ int get_vertex_index(Graph *graph, char *name)
     return -1;
 }
 
+// Function to add new vertex to Graph
 int add_vertex(Graph *graph, char *name)
 {
     int index = get_vertex_index(graph, name);
@@ -84,6 +82,7 @@ int add_vertex(Graph *graph, char *name)
     return newVertexIndex;
 }
 
+// Function to remove vertex from Graph
 void remove_vertex(Graph *graph, int index)
 {
     if (graph->vertexNames[index])
@@ -100,6 +99,7 @@ void remove_vertex(Graph *graph, int index)
     }
 }
 
+// Function to print Graph
 void print_graph(Graph *graph)
 {
     for (int i = 0; i < graph->numVertices; i++)
@@ -119,7 +119,8 @@ void print_graph(Graph *graph)
     }
 }
 
-int* shortest_path(Graph* graph, char* srcName, char* destName, int* pathLength) {
+// Function to get the shortest 
+char** shortest_path(Graph* graph, char* srcName, char* destName, int* pathLength) {
     int src = get_vertex_index(graph, srcName);
     int dest = get_vertex_index(graph, destName);
 
@@ -174,12 +175,12 @@ int* shortest_path(Graph* graph, char* srcName, char* destName, int* pathLength)
     }
 
     // Reconstruct the path from destination to source
-    int* path = (int*)malloc(distance[dest] * sizeof(int));
-    int current = dest;
-    *pathLength = distance[dest];
+    *pathLength = distance[dest] + 1; // Adding 1 to include the source vertex in path
+    char** path = (char**)malloc(*pathLength * sizeof(char*));
 
+    int current = dest;
     for (int i = *pathLength - 1; i >= 0; i--) {
-        path[i] = current;
+        path[i] = graph->vertexNames[current];
         current = parent[current];
     }
 
