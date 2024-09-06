@@ -6,6 +6,32 @@ This project is an implementation of a Standard Template Library (STL) for graph
 
 ├── include │ ├── graph.h │ ├── queue.h │ └── tree.h ├── src │ ├── binary_tree.c │ ├── binary_search_tree.c │ ├── common_graph_operations.c │ ├── common_tree_operations.c │ ├── directed_graph.c │ ├── queue.c │ └── undirected_graph.c └── testing ├── test_binary_tree.c ├── test_binary_search_tree.c ├── test_common_graph_operations.c ├── test_common_tree_operations.c ├── test_directed_graph.c ├── test_queue.c └── test_undirected_graph.c
 
+Graph and Trees STL in C/
+├── include/
+│   ├── graph.h
+│   ├── queue.h
+│   ├── tree.h
+├── src/
+│   ├── binary_tree.c
+│   ├── binary_search_tree.c
+│   ├── common_graph_operations.c
+│   ├── directed_graph.c
+│   ├── queue.c
+│   ├── undirected_graph.c
+│   └── common_tree_operations.c
+│   
+├── testing/
+│   ├── test_binary_tree.c
+│   ├── test_binary_search_tree.c
+|   ├── test_common_graph_operations.c
+│   ├── test_common_tree_operations.c
+|   ├── test_directed_graph.c
+│   ├── test_queue.c
+│   └── test_undirected_graph.c
+├── run_tests.sh
+├── .gitignore
+└── README.md
+
 ### Include Directory
 - **graph.h**: Header file for graph-related structures and functions.
 - **tree.h**: Header file for tree-related structures and functions.
@@ -44,17 +70,17 @@ This project is an implementation of a Standard Template Library (STL) for graph
 ## Getting Started
 
 ### Prerequisites
-- GCC (GNU Compiler Collection)
-- Make (optional, for automation of building and testing)
+- GCC (GNU Compiler Collection) - Ensure you have the GCC Compile installed on your system
 
 ### Building the Project
-You can compile individual components or the entire project using a Makefile or directly using GCC.
+You can compile individual components or the entire project using a run_all.sh or directly using GCC.
 
 #### Compile Individual Components
 Compile specific components using GCC:
 
 ```bash
 gcc -o binary_tree src/binary_tree.c include/tree.h
+```
 
 ### Running Tests
 To run all the tests, you can use the provided `run_tests.sh` script. This script compiles and executes all the test files located in the `testing` directory.
@@ -63,6 +89,7 @@ To run the tests, use the following command:
 
 ```bash
 ./run_tests.sh
+```
 
 ### Running the Entire Code
 To run the entire project, you can use the `run_all.sh` script. This script is designed to compile all source files and execute the main functionalities of the project in one go.
@@ -71,3 +98,4 @@ To run the script, execute the following command in your terminal:
 
 ```bash
 ./run_all.sh
+```
