@@ -38,4 +38,4 @@ bool is_cyclic_directed(Graph* graph);
 bool is_cyclic_undirected(Graph* graph);
 
 // Shortest Path - Using BFS
-int* shortest_path(Graph* graph, char* srcName, char* destName, int* pathLength);
+char** shortest_path(Graph* graph, char* srcName, char* destName, int* pathLength);
