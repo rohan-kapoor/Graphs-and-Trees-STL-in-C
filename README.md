@@ -3,9 +3,7 @@
 This project is an implementation of a Standard Template Library (STL) for graphs and trees in C. The library provides various functionalities for handling directed and undirected graphs, as well as binary trees and binary search trees (BSTs). The code is organized into separate modules for clarity and ease of testing.
 
 ## Project Structure
-
-├── include │ ├── graph.h │ ├── queue.h │ └── tree.h ├── src │ ├── binary_tree.c │ ├── binary_search_tree.c │ ├── common_graph_operations.c │ ├── common_tree_operations.c │ ├── directed_graph.c │ ├── queue.c │ └── undirected_graph.c └── testing ├── test_binary_tree.c ├── test_binary_search_tree.c ├── test_common_graph_operations.c ├── test_common_tree_operations.c ├── test_directed_graph.c ├── test_queue.c └── test_undirected_graph.c
-
+```ssh
 Graph and Trees STL in C/
 ├── include/
 │   ├── graph.h
@@ -31,6 +29,7 @@ Graph and Trees STL in C/
 ├── run_tests.sh
 ├── .gitignore
 └── README.md
+```
 
 ### Include Directory
 - **graph.h**: Header file for graph-related structures and functions.
