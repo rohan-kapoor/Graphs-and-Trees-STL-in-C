@@ -82,7 +82,7 @@ int main() {
     test_create_node();
     test_tree_traversals();
     test_get_height();
-    //test_level_order_traversal();
+    test_level_order_traversal();
     test_free_tree();
 
     printf("All common tree test cases passed!\n\n");

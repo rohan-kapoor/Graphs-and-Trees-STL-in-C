@@ -77,7 +77,7 @@ void level_order_traversal(TreeNode* root){
     current_size++;
 
     while(front < rear){
-        resize_queue(&queue, &capacity, current_size);
+        resize_queue(&queue, &capacity, current_size + 1);
 
         TreeNode* temp = queue[front++];
         current_size--;
@@ -85,7 +85,7 @@ void level_order_traversal(TreeNode* root){
         printf("%d ", temp -> data);
 
         if(temp -> left != NULL){
-            queue[rear++] = temp -> right;
+            queue[rear++] = temp -> left;
             current_size++;
         }
         

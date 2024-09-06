@@ -18,7 +18,7 @@ TreeNode* insert_BT(TreeNode* root, int data) {
     current_size++;
 
     while(front < rear){
-        resize_queue(&queue, &capacity, current_size);
+        resize_queue(&queue, &capacity, current_size  + 1);
 
         TreeNode* temp = queue[front++];
         current_size--;
@@ -62,7 +62,7 @@ TreeNode* find_deepest_node(TreeNode* root) {
     TreeNode* deepest_node = NULL;
 
     while (front < rear) {
-        resize_queue(&queue, &capacity, current_size);
+        resize_queue(&queue, &capacity, current_size + 1);
 
         deepest_node = queue[front++];
         current_size--;
@@ -96,7 +96,7 @@ void delete_deepest_node(TreeNode* root, TreeNode* d_node) {
     current_size++;
 
     while (front < rear) {
-        resize_queue(&queue, &capacity, current_size);
+        resize_queue(&queue, &capacity, current_size + 1);
 
         TreeNode* temp = queue[front++];
         current_size--;
@@ -155,7 +155,7 @@ TreeNode* delete_node_BT(TreeNode* root, int data) {
     TreeNode* to_delete = NULL;
 
     while (front < rear) {
-        resize_queue(&queue, &capacity, current_size);
+        resize_queue(&queue, &capacity, current_size + 1);
 
         temp = queue[front++];
         current_size--;

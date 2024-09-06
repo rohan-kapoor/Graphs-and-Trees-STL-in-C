@@ -75,7 +75,7 @@ void test_delete_node_BT() {
     root = delete_node_BT(root, 3);
 
     // Expected level-order after deletion
-    int expected[] = {1, 2, 4, 5};
+    int expected[] = {1, 2, 5, 4};
     int collected[4];
     int size = 0;
 
@@ -93,7 +93,7 @@ void test_delete_node_BT() {
 // Main function to run all tests
 int main() {
     test_insert_BT();
-    // test_delete_node_BT();
+    test_delete_node_BT();
     
     printf("All tests passed successfully!\n\n");
     
