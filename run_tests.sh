@@ -41,6 +41,8 @@ for TEST_FILE in "$TEST_DIR"/*.c; do
     # Run the compiled test
     echo "Running $EXEC_NAME..."
     ./"$EXEC_NAME"
+
+    rm $EXEC_NAME
 done
 
 echo "All tests completed successfully."
