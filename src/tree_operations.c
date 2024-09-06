@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "tree_operations.h"
+#include "tree.h"
 
 #define INITIAL_QUEUE_SIZE 10
 
@@ -14,7 +12,7 @@ TreeNode* create_node(int data){
 }
 
 // Function to perform a pre-order traversal
-void pre_order(TreeNode* root) {
+void pre_order_traversal(TreeNode* root) {
     if (root == NULL) return;
     printf("%d ", root->data);
     pre_order(root->left);
@@ -22,7 +20,7 @@ void pre_order(TreeNode* root) {
 }
 
 // Function to perform an in-order traversal
-void in_order(TreeNode* root) {
+void in_order_traversal(TreeNode* root) {
     if (root == NULL) return;
     in_order(root->left);
     printf("%d ", root->data);
@@ -30,7 +28,7 @@ void in_order(TreeNode* root) {
 }
 
 // Function to perform a post-order traversal
-void post_order(TreeNode* root) {
+void post_order_traversal(TreeNode* root) {
     if (root == NULL) return;
     post_order(root->left);
     post_order(root->right);
@@ -66,7 +64,7 @@ void resize_queue(TreeNode*** queue, int* capacity, int current_size){
 }
 
 // Function to print the level order traversal of tree
-void level_order(TreeNode* root){
+void level_order_traversal(TreeNode* root){
     if(root == NULL) return;
 
     int capacity = INITIAL_QUEUE_SIZE;

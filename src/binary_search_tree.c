@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "binary_search_tree.h"
-#include "tree_operations.h"
-
+#include "tree.h"
 
 // Function to insert a node into the BST
 TreeNode* insert_BST (TreeNode* root, int key) {

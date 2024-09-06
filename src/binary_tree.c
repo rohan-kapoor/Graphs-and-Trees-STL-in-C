@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "binary_tree.h"
-#include "tree_operations.h"
+#include "tree.h"
 
 #define INITIAL_QUEUE_SIZE 10
 
