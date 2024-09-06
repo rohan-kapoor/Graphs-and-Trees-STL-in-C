@@ -13,9 +13,11 @@ TreeNode* insert_BST(TreeNode* root, int key);
 TreeNode* search_BST(TreeNode* root, int key);
 TreeNode* delete_node_BST(TreeNode* root, int key);
 
+
 // Binary Tree functions
 TreeNode* insert_BT(TreeNode* root, int data); // Level order insertion
 TreeNode* delete_node_BT(TreeNode* root, int data); // Level order deletion
+int minimum_value_BST(TreeNode* root);
 
 // Common Tree functions
 TreeNode* create_node(int data);

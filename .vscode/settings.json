@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "tree.h": "c",
+        "graph.h": "c",
+        "queue.h": "c"
+    }
+}

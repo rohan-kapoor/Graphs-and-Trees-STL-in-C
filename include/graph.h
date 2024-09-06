@@ -17,6 +17,7 @@ void free_graph(Graph* graph);
 int get_vertex_index(Graph* graph, char* name);
 int add_vertex(Graph *graph, char *name);
 void print_graph(Graph* graph);
+void remove_vertex(Graph *graph, int index);
 
 
 // Directed graph functions

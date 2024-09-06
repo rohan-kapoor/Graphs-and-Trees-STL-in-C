@@ -15,23 +15,23 @@ TreeNode* create_node(int data){
 void pre_order_traversal(TreeNode* root) {
     if (root == NULL) return;
     printf("%d ", root->data);
-    pre_order(root->left);
-    pre_order(root->right);
+    pre_order_traversal(root->left);
+    pre_order_traversal(root->right);
 }
 
 // Function to perform an in-order traversal
 void in_order_traversal(TreeNode* root) {
     if (root == NULL) return;
-    in_order(root->left);
+    in_order_traversal(root->left);
     printf("%d ", root->data);
-    in_order(root->right);
+    in_order_traversal(root->right);
 }
 
 // Function to perform a post-order traversal
 void post_order_traversal(TreeNode* root) {
     if (root == NULL) return;
-    post_order(root->left);
-    post_order(root->right);
+    post_order_traversal(root->left);
+    post_order_traversal(root->right);
     printf("%d ", root->data);
 }
 
