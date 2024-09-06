@@ -70,7 +70,7 @@ void test_print_graph() {
     print_graph(graph);
 
     // Manually verify the output
-    printf("Expected:\nA: B\nB: A\nC:\n");
+    printf("\nExpected:\nA: B\nB: A\nC:\n");
 
     free_graph(graph);
     printf("Print graph test passed!\n");

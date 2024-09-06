@@ -24,15 +24,15 @@ void test_tree_traversals() {
 
     printf("Expected Pre-Order: 1 2 4 5 3\nActual Pre-Order: ");
     pre_order_traversal(root);
-    printf("\n");
+    printf("\n\n");
 
     printf("Expected In-Order: 4 2 5 1 3\nActual In-Order: ");
     in_order_traversal(root);
-    printf("\n");
+    printf("\n\n");
 
     printf("Expected Post-Order: 4 5 2 3 1\nActual Post-Order: ");
     post_order_traversal(root);
-    printf("\n");
+    printf("\n\n");
 
     free_tree(root);
 }
@@ -60,7 +60,7 @@ void test_level_order_traversal() {
 
     printf("Expected Level Order: 1 2 3 4 5\nActual Level Order: ");
     level_order_traversal(root);
-    printf("\n");
+    printf("\n\n");
 
     free_tree(root);
 }

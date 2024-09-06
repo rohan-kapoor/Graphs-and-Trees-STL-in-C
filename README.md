@@ -26,7 +26,9 @@ Graph and Trees STL in C/
 |   ├── test_directed_graph.c
 │   ├── test_queue.c
 │   └── test_undirected_graph.c
+├── main.c
 ├── run_tests.sh
+├── run_all.sh
 ├── .gitignore
 └── README.md
 ```

@@ -1,30 +1,10 @@
 #include <stdio.h>
-// #include "stl.h"
 #include "graph.h"
+#include "tree.h"
 
-int main() {
-    // TreeNode* root = create_node(8);
-    // insert_BST(root, 6);
-    // insert_BST(root, 7);
-    // insert_BST(root, 3);
-    // insert_BST(root, 1);
-    // insert_BST(root, 5);
-    // insert_BST(root, 2);
-    // in_order(root);
-    // printf("\n");
-
-    // TreeNode* root2 = create_node(1);
-    // insert(root2, 3);
-    // insert(root2, 5);
-    // in_order(root2);
-
-    // Graph* graph = create_graph(0);
-    // add_undirected_edge(graph, "delhi", "mumbai");
-    // add_undirected_edge(graph, "mumbai", "jalandhar");
-    // add_directed_edge(graph, "C", "D");
-    // add_directed_edge(graph, "C", "E");
-
-    // print_graph(graph);
+// Sample function to demonstrate directed graph operations
+void demo_directed_graph_operations() {
+    printf("Directed Graph Operations: \n");
 
     Graph* graph = create_graph(5);
 
@@ -32,41 +12,66 @@ int main() {
     add_directed_edge(graph, "B", "C");
     add_directed_edge(graph, "C", "D");
     add_directed_edge(graph, "D", "E");
-    add_directed_edge(graph, "A", "D");
     add_directed_edge(graph, "E", "A");
+    add_directed_edge(graph, "A", "C");
 
     print_graph(graph);
 
-    if (is_connected_directed(graph, "A", "B")) {
-        printf("A is connected to B in a directed graph.\n");
-    } else {
-        printf("A is not connected to B.\n");
-    }
-
-    if (is_connected_directed(graph, "A", "C")) {
-        printf("A is connected to C in a directed graph.\n");
-    } else {
-        printf("A is not connected to C.\n");
-    }
-
+    // Check for cycles in the directed graph
     if (is_cyclic_directed(graph)) {
-        printf("The graph contains a cycle.\n");
+        printf("\nThe directed graph contains a cycle.\n");
     } else {
-        printf("The graph does not contain a cycle.\n");
+        printf("\nThe directed graph does not contain a cycle.\n");
     }
 
+    // Find shortest path from A to D
     int pathLength;
-    int* path = shortest_path(graph, "A", "E", &pathLength);
-    if (path != NULL) {
-        printf("Shortest path from A to E is of length %d:\nA ", pathLength);
+    char** path = shortest_path(graph, "A", "D", &pathLength);
+    if (path) {
+        printf("\nShortest path from A to D:\n");
         for (int i = 0; i < pathLength; i++) {
-            printf("%s ", graph->vertexNames[path[i]]);
+            printf("%s ", path[i]);
         }
         printf("\n");
-        free(path);  // Free the path array
+        free(path);
     } else {
-        printf("No path exists from A to E.\n");
+        printf("\nNo path found from A to D.\n");
     }
+
+    free_graph(graph);
+}
+
+// Sample function to demonstrate BST operations
+void demo_bst_operations() {
+    printf("Binary Search Tree Operations: \n");
+
+    // Create a binary search tree
+    TreeNode* root = NULL;
+    root = insert_BST(root, 10);
+    root = insert_BST(root, 5);
+    root = insert_BST(root, 15);
+    root = insert_BST(root, 3);
+    root = insert_BST(root, 7);
+
+    // Print BST traversals
+    printf("\nIn-order traversal:\n");
+    in_order_traversal(root); // sorted order
+    printf("\n");
+
+    printf("\nDeleting 7 from BST\n");
+
+    printf("\nIn-order traversal:\n");
+    delete_node_BST(root, 7);
+    in_order_traversal(root);
+    printf("\n");
+
+    // Free tree
+    free_tree(root);
+}
+
+int main() {
+    demo_directed_graph_operations();
+    demo_bst_operations();
 
     return 0;
 }

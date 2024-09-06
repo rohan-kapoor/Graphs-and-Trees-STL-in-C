@@ -48,7 +48,7 @@ int main() {
     test_undirected_edge_operations();
     test_undirected_cycle_detection();
 
-    printf("All undirected graph tests passed successfully!\n");
+    printf("All undirected graph tests passed successfully!\n\n");
 
     return 0;
 }
