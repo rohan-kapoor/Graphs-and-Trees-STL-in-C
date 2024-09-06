@@ -14,8 +14,8 @@ TreeNode* search_BST(TreeNode* root, int key);
 TreeNode* delete_node_BST(TreeNode* root, int key);
 
 // Binary Tree functions
-TreeNode* insert(TreeNode* root, int data); // Level order insertion
-TreeNode* delete_node(TreeNode* root, int data); // Level order deletion
+TreeNode* insert_BT(TreeNode* root, int data); // Level order insertion
+TreeNode* delete_node_BT(TreeNode* root, int data); // Level order deletion
 
 // Common Tree functions
 TreeNode* create_node(int data);
