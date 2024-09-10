@@ -5,17 +5,20 @@
 #include "queue.h"
 
 // Function to test graph creation
-void test_graph_creation() {
+void test_graph_creation()
+{
     int numVertices = 5;
-    Graph* graph = create_graph(numVertices);
+    Graph *graph = create_graph(numVertices);
 
     assert(graph != NULL);
     assert(graph->numVertices == numVertices);
 
     // Check if vertexNames and adjMatrix are properly allocated
-    for (int i = 0; i < numVertices; i++) {
+    for (int i = 0; i < numVertices; i++)
+    {
         assert(graph->vertexNames[i] == NULL);
-        for (int j = 0; j < numVertices; j++) {
+        for (int j = 0; j < numVertices; j++)
+        {
             assert(graph->adjMatrix[i][j] == false);
         }
     }
@@ -25,8 +28,9 @@ void test_graph_creation() {
 }
 
 // Function to test vertex addition and removal
-void test_vertex_operations() {
-    Graph* graph = create_graph(2);
+void test_vertex_operations()
+{
+    Graph *graph = create_graph(2);
 
     // Add vertices
     int v1 = add_vertex(graph, "A");
@@ -47,7 +51,8 @@ void test_vertex_operations() {
     remove_vertex(graph, 1);
 
     assert(graph->vertexNames[1] == NULL);
-    for (int i = 0; i < graph->numVertices; i++) {
+    for (int i = 0; i < graph->numVertices; i++)
+    {
         assert(graph->adjMatrix[1][i] == false);
         assert(graph->adjMatrix[i][1] == false);
     }
@@ -57,14 +62,15 @@ void test_vertex_operations() {
 }
 
 // Function to test graph printing
-void test_print_graph() {
-    Graph* graph = create_graph(3);
+void test_print_graph()
+{
+    Graph *graph = create_graph(3);
     add_vertex(graph, "A");
     add_vertex(graph, "B");
     add_vertex(graph, "C");
 
     graph->adjMatrix[0][1] = true;
-    graph->adjMatrix[1][0] = true;  // Undirected edge
+    graph->adjMatrix[1][0] = true; // Undirected edge
 
     printf("Graph structure:\n");
     print_graph(graph);
@@ -77,10 +83,11 @@ void test_print_graph() {
 }
 
 // Function to test shortest path
-void test_shortest_path() {
-    
+void test_shortest_path()
+{
+
     int numVertices = 6;
-    Graph* graph = create_graph(numVertices);
+    Graph *graph = create_graph(numVertices);
 
     // Add vertices (vertex names)
     add_vertex(graph, "A");
@@ -100,7 +107,7 @@ void test_shortest_path() {
 
     // Test the shortest path from A to F
     int pathLength;
-    char** path = shortest_path(graph, "A", "F", &pathLength);
+    char **path = shortest_path(graph, "A", "F", &pathLength);
 
     assert(pathLength == 4); // The shortest path A -> C -> D -> F has 4 vertices
 
@@ -117,7 +124,8 @@ void test_shortest_path() {
 }
 
 // Main function to run all tests
-int main() {
+int main()
+{
     test_graph_creation();
     test_vertex_operations();
     test_print_graph();

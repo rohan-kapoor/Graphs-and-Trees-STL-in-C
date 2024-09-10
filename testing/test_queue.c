@@ -4,9 +4,10 @@
 #include "queue.h"
 
 // Function to test queue creation
-void test_queue_creation() {
+void test_queue_creation()
+{
     int capacity = 5;
-    Queue* queue = create_queue(capacity);
+    Queue *queue = create_queue(capacity);
 
     assert(queue != NULL);
     assert(queue->capacity == capacity);
@@ -20,9 +21,10 @@ void test_queue_creation() {
 }
 
 // Function to test enqueue and dequeue operations
-void test_queue_operations() {
+void test_queue_operations()
+{
     int capacity = 5;
-    Queue* queue = create_queue(capacity);
+    Queue *queue = create_queue(capacity);
 
     assert(is_queue_empty(queue) == true);
     assert(is_queue_full(queue) == false);
@@ -57,9 +59,10 @@ void test_queue_operations() {
 }
 
 // Function to test queue overflow and underflow handling
-void test_queue_overflow_underflow() {
+void test_queue_overflow_underflow()
+{
     int capacity = 3;
-    Queue* queue = create_queue(capacity);
+    Queue *queue = create_queue(capacity);
 
     enqueue(queue, 1);
     enqueue(queue, 2);
@@ -95,7 +98,8 @@ void test_queue_overflow_underflow() {
 }
 
 // Main function to run all tests
-int main() {
+int main()
+{
     test_queue_creation();
     test_queue_operations();
     test_queue_overflow_underflow();

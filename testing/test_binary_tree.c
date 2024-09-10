@@ -3,32 +3,39 @@
 #include "tree.h"
 
 // Function to perform level-order traversal and collect elements into an array
-void collect_level_order(TreeNode* root, int* arr, int* size) {
-    if (root == NULL) return;
+void collect_level_order(TreeNode *root, int *arr, int *size)
+{
+    if (root == NULL)
+        return;
 
     int capacity = 10;
-    TreeNode** queue = (TreeNode**)malloc(capacity * sizeof(TreeNode*));
+    TreeNode **queue = (TreeNode **)malloc(capacity * sizeof(TreeNode *));
 
     int front = 0, rear = 0;
     queue[rear++] = root;
 
-    while (front < rear) {
-        if (rear >= capacity) {
+    while (front < rear)
+    {
+        if (rear >= capacity)
+        {
             capacity *= 2;
-            queue = (TreeNode**)realloc(queue, capacity * sizeof(TreeNode*));
-            if (!queue) {
+            queue = (TreeNode **)realloc(queue, capacity * sizeof(TreeNode *));
+            if (!queue)
+            {
                 fprintf(stderr, "Memory allocation failed\n");
                 exit(EXIT_FAILURE);
             }
         }
 
-        TreeNode* node = queue[front++];
+        TreeNode *node = queue[front++];
         arr[(*size)++] = node->data;
 
-        if (node->left != NULL) {
+        if (node->left != NULL)
+        {
             queue[rear++] = node->left;
         }
-        if (node->right != NULL) {
+        if (node->right != NULL)
+        {
             queue[rear++] = node->right;
         }
     }
@@ -37,8 +44,9 @@ void collect_level_order(TreeNode* root, int* arr, int* size) {
 }
 
 // Function to test binary tree insertion
-void test_insert_BT() {
-    TreeNode* root = NULL;
+void test_insert_BT()
+{
+    TreeNode *root = NULL;
 
     root = insert_BT(root, 1);
     root = insert_BT(root, 2);
@@ -55,7 +63,8 @@ void test_insert_BT() {
 
     // To check if the elements match the expected level-order
     assert(size == 5);
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         assert(collected[i] == expected[i]);
     }
 
@@ -63,8 +72,9 @@ void test_insert_BT() {
 }
 
 // Function to test deleting a node in binary tree
-void test_delete_node_BT() {
-    TreeNode* root = NULL;
+void test_delete_node_BT()
+{
+    TreeNode *root = NULL;
 
     root = insert_BT(root, 1);
     root = insert_BT(root, 2);
@@ -83,7 +93,8 @@ void test_delete_node_BT() {
 
     // To check if the elements match the expected level-order
     assert(size == 4);
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; i++)
+    {
         assert(collected[i] == expected[i]);
     }
 
@@ -91,11 +102,12 @@ void test_delete_node_BT() {
 }
 
 // Main function to run all tests
-int main() {
+int main()
+{
     test_insert_BT();
     test_delete_node_BT();
-    
+
     printf("All tests passed successfully!\n\n");
-    
+
     return 0;
 }

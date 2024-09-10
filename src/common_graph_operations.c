@@ -1,6 +1,7 @@
 #include "graph.h"
 #include "queue.h"
 
+// Function to create graph
 Graph *create_graph(int numVertices)
 {
     Graph *graph = (Graph *)malloc(sizeof(Graph));
@@ -21,6 +22,7 @@ Graph *create_graph(int numVertices)
     return graph;
 }
 
+// Function to free the memory allocated by the graph
 void free_graph(Graph *graph)
 {
     for (int i = 0; i < graph->numVertices; i++)
@@ -33,6 +35,7 @@ void free_graph(Graph *graph)
     free(graph);
 }
 
+// Function to get the vertex index as stored in name array
 int get_vertex_index(Graph *graph, char *name)
 {
     for (int i = 0; i < graph->numVertices; i++)
@@ -119,45 +122,52 @@ void print_graph(Graph *graph)
     }
 }
 
-// Function to get the shortest 
-char** shortest_path(Graph* graph, char* srcName, char* destName, int* pathLength) {
+// Function to get the shortest
+char **shortest_path(Graph *graph, char *srcName, char *destName, int *pathLength)
+{
     int src = get_vertex_index(graph, srcName);
     int dest = get_vertex_index(graph, destName);
 
-    if (src == -1 || dest == -1) {
+    if (src == -1 || dest == -1)
+    {
         *pathLength = -1;
-        return NULL;  // Invalid source or destination name
+        return NULL; // Invalid source or destination name
     }
 
-    bool* visited = (bool*)calloc(graph->numVertices, sizeof(bool));
-    int* parent = (int*)calloc(graph->numVertices, sizeof(int));
-    int* distance = (int*)calloc(graph->numVertices, sizeof(int));
+    bool *visited = (bool *)calloc(graph->numVertices, sizeof(bool));
+    int *parent = (int *)calloc(graph->numVertices, sizeof(int));
+    int *distance = (int *)calloc(graph->numVertices, sizeof(int));
 
-    for (int i = 0; i < graph->numVertices; i++) {
-        distance[i] = INT_MAX;  // Initialize distances to infinity
-        parent[i] = -1;         // Initialize parents to -1 (no parent)
+    for (int i = 0; i < graph->numVertices; i++)
+    {
+        distance[i] = INT_MAX; // Initialize distances to infinity
+        parent[i] = -1;        // Initialize parents to -1 (no parent)
     }
 
     // Create the queue for BFS
-    Queue* queue = create_queue(graph->numVertices);
+    Queue *queue = create_queue(graph->numVertices);
     enqueue(queue, src);
     visited[src] = true;
     distance[src] = 0;
 
     // Perform BFS
-    while (!is_queue_empty(queue)) {
+    while (!is_queue_empty(queue))
+    {
         int vertex = dequeue(queue);
 
         // Explore all neighbors of the current vertex
-        for (int i = 0; i < graph->numVertices; i++) {
-            if (graph->adjMatrix[vertex][i] && !visited[i]) {
+        for (int i = 0; i < graph->numVertices; i++)
+        {
+            if (graph->adjMatrix[vertex][i] && !visited[i])
+            {
                 visited[i] = true;
                 enqueue(queue, i);
                 parent[i] = vertex;
                 distance[i] = distance[vertex] + 1;
 
                 // If destination is found, exit early
-                if (i == dest) {
+                if (i == dest)
+                {
                     break;
                 }
             }
@@ -165,7 +175,8 @@ char** shortest_path(Graph* graph, char* srcName, char* destName, int* pathLengt
     }
 
     // If destination is not reachable
-    if (distance[dest] == INT_MAX) {
+    if (distance[dest] == INT_MAX)
+    {
         *pathLength = -1;
         free(visited);
         free(parent);
@@ -176,10 +187,11 @@ char** shortest_path(Graph* graph, char* srcName, char* destName, int* pathLengt
 
     // Reconstruct the path from destination to source
     *pathLength = distance[dest] + 1; // Adding 1 to include the source vertex in path
-    char** path = (char**)malloc(*pathLength * sizeof(char*));
+    char **path = (char **)malloc(*pathLength * sizeof(char *));
 
     int current = dest;
-    for (int i = *pathLength - 1; i >= 0; i--) {
+    for (int i = *pathLength - 1; i >= 0; i--)
+    {
         path[i] = graph->vertexNames[current];
         current = parent[current];
     }

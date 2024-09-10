@@ -3,10 +3,11 @@
 #include "tree.h"
 
 // Sample function to demonstrate directed graph operations
-void demo_directed_graph_operations() {
+void demo_directed_graph_operations()
+{
     printf("Directed Graph Operations: \n");
 
-    Graph* graph = create_graph(5);
+    Graph *graph = create_graph(5);
 
     add_directed_edge(graph, "A", "B");
     add_directed_edge(graph, "B", "C");
@@ -18,23 +19,30 @@ void demo_directed_graph_operations() {
     print_graph(graph);
 
     // Check for cycles in the directed graph
-    if (is_cyclic_directed(graph)) {
+    if (is_cyclic_directed(graph))
+    {
         printf("\nThe directed graph contains a cycle.\n");
-    } else {
+    }
+    else
+    {
         printf("\nThe directed graph does not contain a cycle.\n");
     }
 
     // Find shortest path from A to D
     int pathLength;
-    char** path = shortest_path(graph, "A", "D", &pathLength);
-    if (path) {
+    char **path = shortest_path(graph, "A", "D", &pathLength);
+    if (path)
+    {
         printf("\nShortest path from A to D:\n");
-        for (int i = 0; i < pathLength; i++) {
+        for (int i = 0; i < pathLength; i++)
+        {
             printf("%s ", path[i]);
         }
         printf("\n");
         free(path);
-    } else {
+    }
+    else
+    {
         printf("\nNo path found from A to D.\n");
     }
 
@@ -42,11 +50,12 @@ void demo_directed_graph_operations() {
 }
 
 // Sample function to demonstrate BST operations
-void demo_bst_operations() {
+void demo_bst_operations()
+{
     printf("Binary Search Tree Operations: \n");
 
     // Create a binary search tree
-    TreeNode* root = NULL;
+    TreeNode *root = NULL;
     root = insert_BST(root, 10);
     root = insert_BST(root, 5);
     root = insert_BST(root, 15);
@@ -69,7 +78,8 @@ void demo_bst_operations() {
     free_tree(root);
 }
 
-int main() {
+int main()
+{
     demo_directed_graph_operations();
     demo_bst_operations();
 

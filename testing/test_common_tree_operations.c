@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include "tree.h"  // Include your tree header file
+#include "tree.h" // Include your tree header file
 
 // Test the create_node function
-void test_create_node() {
-    TreeNode* node = create_node(5);
+void test_create_node()
+{
+    TreeNode *node = create_node(5);
     assert(node != NULL);
     assert(node->data == 5);
     assert(node->left == NULL);
@@ -15,8 +16,9 @@ void test_create_node() {
 }
 
 // Test the tree traversals (pre-order, in-order, post-order)
-void test_tree_traversals() {
-    TreeNode* root = create_node(1);
+void test_tree_traversals()
+{
+    TreeNode *root = create_node(1);
     root->left = create_node(2);
     root->right = create_node(3);
     root->left->left = create_node(4);
@@ -38,8 +40,9 @@ void test_tree_traversals() {
 }
 
 // Test the get_height function
-void test_get_height() {
-    TreeNode* root = create_node(1);
+void test_get_height()
+{
+    TreeNode *root = create_node(1);
     root->left = create_node(2);
     root->right = create_node(3);
     root->left->left = create_node(4);
@@ -51,8 +54,9 @@ void test_get_height() {
 }
 
 // Test the level_order_traversal function
-void test_level_order_traversal() {
-    TreeNode* root = create_node(1);
+void test_level_order_traversal()
+{
+    TreeNode *root = create_node(1);
     root->left = create_node(2);
     root->right = create_node(3);
     root->left->left = create_node(4);
@@ -66,8 +70,9 @@ void test_level_order_traversal() {
 }
 
 // Test the free_tree function
-void test_free_tree() {
-    TreeNode* root = create_node(1);
+void test_free_tree()
+{
+    TreeNode *root = create_node(1);
     root->left = create_node(2);
     root->right = create_node(3);
     root->left->left = create_node(4);
@@ -75,10 +80,11 @@ void test_free_tree() {
 
     free_tree(root);
 
-    assert(root != NULL);  // root is not NULL but should not cause issues as the memory is freed
+    assert(root != NULL); // root is not NULL but should not cause issues as the memory is freed
 }
 
-int main() {
+int main()
+{
     test_create_node();
     test_tree_traversals();
     test_get_height();

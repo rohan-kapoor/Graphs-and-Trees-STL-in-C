@@ -2,8 +2,9 @@
 #include "graph.h"
 
 // Function to test edge operations
-void test_edge_operations() {
-    Graph* graph = create_graph(5);
+void test_edge_operations()
+{
+    Graph *graph = create_graph(5);
 
     add_directed_edge(graph, "A", "B");
     add_directed_edge(graph, "B", "C");
@@ -24,8 +25,9 @@ void test_edge_operations() {
 }
 
 // Function to test cycle detection
-void test_cycle_detection() {
-    Graph* graph = create_graph(5);
+void test_cycle_detection()
+{
+    Graph *graph = create_graph(5);
 
     add_directed_edge(graph, "A", "B");
     add_directed_edge(graph, "B", "C");
@@ -44,7 +46,8 @@ void test_cycle_detection() {
 }
 
 // Main function to run all tests
-int main() {
+int main()
+{
     test_edge_operations();
     test_cycle_detection();
 

@@ -3,16 +3,19 @@
 #include "tree.h"
 
 // Function to perform in-order traversal and collect elements into an array
-void collect_in_order(TreeNode* root, int* arr, int* index) {
-    if (root == NULL) return;
+void collect_in_order(TreeNode *root, int *arr, int *index)
+{
+    if (root == NULL)
+        return;
     collect_in_order(root->left, arr, index);
     arr[(*index)++] = root->data;
     collect_in_order(root->right, arr, index);
 }
 
 // Function to test BST insertion
-void test_insert_BST() {
-    TreeNode* root = NULL;
+void test_insert_BST()
+{
+    TreeNode *root = NULL;
 
     root = insert_BST(root, 50);
     root = insert_BST(root, 30);
@@ -41,8 +44,9 @@ void test_insert_BST() {
 }
 
 // Function to test BST search
-void test_search_BST() {
-    TreeNode* root = NULL;
+void test_search_BST()
+{
+    TreeNode *root = NULL;
 
     root = insert_BST(root, 50);
     root = insert_BST(root, 30);
@@ -60,17 +64,18 @@ void test_search_BST() {
     assert(search_BST(root, 70) != NULL);
     assert(search_BST(root, 60) != NULL);
     assert(search_BST(root, 80) != NULL);
-    
+
     // Negative search case
     assert(search_BST(root, 100) == NULL);
-    
+
     printf("Search test passed!\n");
 }
 
 // Function to test finding the minimum value in a BST
-void test_minimum_value_BST() {
-    TreeNode* root = NULL;
-    
+void test_minimum_value_BST()
+{
+    TreeNode *root = NULL;
+
     root = insert_BST(root, 50);
     root = insert_BST(root, 30);
     root = insert_BST(root, 20);
@@ -78,16 +83,17 @@ void test_minimum_value_BST() {
     root = insert_BST(root, 70);
     root = insert_BST(root, 60);
     root = insert_BST(root, 80);
-    
+
     assert(minimum_value_BST(root) == 20);
 
     printf("Minimum value test passed!\n");
 }
 
 // Function to test node deletion in BST
-void test_delete_BST() {
-    TreeNode* root = NULL;
-    
+void test_delete_BST()
+{
+    TreeNode *root = NULL;
+
     root = insert_BST(root, 50);
     root = insert_BST(root, 30);
     root = insert_BST(root, 20);
@@ -95,7 +101,7 @@ void test_delete_BST() {
     root = insert_BST(root, 70);
     root = insert_BST(root, 60);
     root = insert_BST(root, 80);
-    
+
     // Delete node with no children
     root = delete_node_BST(root, 20);
     assert(search_BST(root, 20) == NULL);
@@ -118,13 +124,14 @@ void test_delete_BST() {
 }
 
 // Main function to run all tests
-int main() {
+int main()
+{
     test_insert_BST();
     test_search_BST();
     test_minimum_value_BST();
     test_delete_BST();
-    
+
     printf("All tests passed successfully!\n\n");
-    
+
     return 0;
 }
